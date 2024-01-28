@@ -6,6 +6,7 @@ const { tspl } = require('@matteo.collina/tspl')
 const util = require('../../lib/fetch/util')
 const { HeadersList } = require('../../lib/fetch/headers')
 const { createHash } = require('crypto')
+const { Request } = require('../../lib/fetch/request')
 
 test('responseURL', (t) => {
   const { ok } = tspl(t, { plan: 2 })
@@ -336,4 +337,11 @@ test('parseMetadata', async (t) => {
       { algo: 'sha512', hash: hash512 }
     ])
   })
+})
+
+test('isRequest', () => {
+  assert.strictEqual(Request !== globalThis.Request, true)
+  assert.strictEqual(util.isRequest({}), false)
+  assert.strictEqual(util.isRequest(new globalThis.Request('http://foo.com')), true)
+  assert.strictEqual(util.isRequest(new Request('http://foo.com')), true)
 })
