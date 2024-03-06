@@ -39,6 +39,16 @@ describe('MockInterceptor - reply', () => {
     t.throws(() => mockInterceptor.reply(), new InvalidArgumentError('statusCode must be defined'))
     t.throws(() => mockInterceptor.reply(200, '', 'hello'), new InvalidArgumentError('responseOptions must be an object'))
   })
+
+  test('should not error if passed option for data is undefined', t => {
+    t = tspl(t, { plan: 1 })
+
+    const mockInterceptor = new MockInterceptor({
+      path: '',
+      method: ''
+    }, [])
+    t.doesNotThrow(() => mockInterceptor.reply(200, undefined, {}))
+  })
 })
 
 describe('MockInterceptor - reply callback', () => {
@@ -126,6 +136,14 @@ describe('MockInterceptor - reply options callback', () => {
     }).reply(() => ({
       statusCode: 200,
       data: 'hello',
+      responseOptions: 42
+    }))
+
+    mockPool.intercept({
+      path: '/test3',
+      method: 'GET'
+    }).reply(() => ({
+      statusCode: 200,
       responseOptions: 42
     }))
 
