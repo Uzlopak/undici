@@ -24,15 +24,12 @@ done
 # Remove the tmp-wpt directory
 rm -rf tmp-wpt
 
-# Check if there are any changes
-git add . && git diff --quiet && git diff --cached --quiet
-
-if [[ $? -eq 0 ]]; then
-    echo "No changes in WPT"
-else
-  git branch -d wpt-update;
-  git checkout -b wpt-update;
-  git add .
-  git commit -n -m "chore: update wpt"
-  git push --set-upstream origin --force wpt-update
-fi
+# if [[ $? -eq 0 ]]; then
+#     echo "No changes in WPT"
+# else
+#   git branch -d wpt-update;
+#   git checkout -b wpt-update;
+#   git add .
+#   git commit -n -m "chore: update wpt"
+#   git push --set-upstream origin --force wpt-update
+# fi
