@@ -18,24 +18,24 @@ jobs:
         uses: actions/checkout@v4
       - name: Update WPT
         run: |
-          rm -rf ./test/fixtures/wpt && mkdir ./test/fixtures/wpt &&
+          rm -rf test/fixtures/wpt && mkdir test/fixtures/wpt &&
 
-          git clone https://github.com/web-platform-tests/wpt.git --depth=1 tmp-wpt &&
+          git clone https://github.com/web-platform-tests/wpt.git --depth=1 test/fixtures/tmp-wpt &&
 
-          mv ./test/fixtures/tmp-wpt/LICENSE.md ./test/fixtures/wpt/LICENSE.md &&
+          mv test/fixtures/tmp-wpt/LICENSE.md test/fixtures/wpt/LICENSE.md &&
 
-          mv ./test/fixtures/tmp-wpt/common ./test/fixtures/wpt/common &&
-          mv ./test/fixtures/tmp-wpt/eventsource ./test/fixtures/wpt/eventsource &&
-          mv ./test/fixtures/tmp-wpt/fetch ./test/fixtures/wpt/fetch &&
-          mv ./test/fixtures/tmp-wpt/interfaces ./test/fixtures/wpt/interfaces &&
-          mv ./test/fixtures/tmp-wpt/mimesniff ./test/fixtures/wpt/mimesniff &&
-          mv ./test/fixtures/tmp-wpt/resources ./test/fixtures/wpt/resources &&
-          mv ./test/fixtures/tmp-wpt/service-workers ./test/fixtures/wpt/service-workers &&
-          mv ./test/fixtures/tmp-wpt/storage ./test/fixtures/wpt/storage &&
-          mv ./test/fixtures/tmp-wpt/websockets ./test/fixtures/wpt/websockets &&
-          mv ./test/fixtures/tmp-wpt/xhr ./test/fixtures/wpt/xhr &&
+          mv test/fixtures/tmp-wpt/common test/fixtures/wpt/common &&
+          mv test/fixtures/tmp-wpt/eventsource test/fixtures/wpt/eventsource &&
+          mv test/fixtures/tmp-wpt/fetch test/fixtures/wpt/fetch &&
+          mv test/fixtures/tmp-wpt/interfaces test/fixtures/wpt/interfaces &&
+          mv test/fixtures/tmp-wpt/mimesniff test/fixtures/wpt/mimesniff &&
+          mv test/fixtures/tmp-wpt/resources test/fixtures/wpt/resources &&
+          mv test/fixtures/tmp-wpt/service-workers test/fixtures/wpt/service-workers &&
+          mv test/fixtures/tmp-wpt/storage test/fixtures/wpt/storage &&
+          mv test/fixtures/tmp-wpt/websockets test/fixtures/wpt/websockets &&
+          mv test/fixtures/tmp-wpt/xhr test/fixtures/wpt/xhr &&
 
-          rm -rf ./test/fixtures/tmp-wpt
+          rm -rf test/fixtures/tmp-wpt
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
