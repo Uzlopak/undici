@@ -23,9 +23,7 @@ jobs:
       - run: ./scripts/update-wpt.sh
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Create PR
-        uses: actions/github-script@v7
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v6
         with:
-          script: |
-            const defaultBranch = "${{ github.event.repository.default_branch }}"
-            await require('./scripts/release').generatePr({ github, context, defaultBranch, versionTag })
+          branch: wpt-update
