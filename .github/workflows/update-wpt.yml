@@ -13,7 +13,12 @@ jobs:
     name: Update WPT
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Git Config
+        run: |
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "github-actions"
       - run: ./scripts/update-wpt.sh
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
