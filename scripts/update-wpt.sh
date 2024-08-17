@@ -34,5 +34,6 @@ else
   git checkout -b wpt-update;
   git add .
   git commit -n -m "chore: update wpt"
+  git push
   gh pr create --base main --head wpt-update --title "The bug is fixed" --body "Everything works again"
 fi
