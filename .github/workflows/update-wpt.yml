@@ -41,3 +41,6 @@ jobs:
         with:
           base: main
           branch: wpt-update
+          title: Update WPT
+          body: Automated update of the WPT
+          commit-message: "chore: update WPT"
