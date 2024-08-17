@@ -34,5 +34,5 @@ else
   git checkout -b wpt-update;
   git add .
   git commit -n -m "chore: update wpt"
-  git --set-upstream origin push
+  git push --set-upstream origin --force
 fi
