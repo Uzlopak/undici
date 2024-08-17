@@ -35,5 +35,4 @@ else
   git add .
   git commit -n -m "chore: update wpt"
   git push
-  gh pr create --base main --head $(git branch --show-current) --title "The bug is fixed" --body "Everything works again"
 fi
