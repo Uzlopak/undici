@@ -11,7 +11,7 @@ cd test/fixtures
 rm -rf wpt && mkdir wpt
 
 # Clone the latest version of the WPT repository into tmp-wpt directory
-rm -rf tmp-wpt; git clone git@github.com:web-platform-tests/wpt.git --depth=1 tmp-wpt
+rm -rf tmp-wpt; git clone https://github.com/web-platform-tests/wpt.git --depth=1 tmp-wpt
 
 # Copy License
 mv ./tmp-wpt/LICENSE.md ./wpt/LICENSE.md
